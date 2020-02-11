@@ -1,0 +1,13 @@
+= Quarkus ConfigProperties
+
+Quarkus can automatically inject property values into a Configuration class or interface as defined in the (https://quarkus.io/guides/config#using-configproperties)[Quarkus Configuration Guide]. While the guide has sample code, it does not have a quickstart. This example is intended to be similar to Quarkus quickstart.
+
+== ConfigProperties example overview
+This repository includes sample project that show various aspects of the `@ConfigProperties` feature/annotation. Properties are split between a `PropertyConfiguration` class and an `PropertyInterface` interface. Properties defined in application.properties are injected into both the class and the interface. The `PropertyConfiguration` and the `PropertyInterface` are injected into a `PropertyResource` class that then returns them in a `JsonObject`.
+
+== General steps
+
+. Run the app wit `mvn quarkus:dev`
+. Open browser to http://localhost:8080/config
+. Uncomment `prefix` parameter `@ConfigProperties` annotation in MyPropertyConfiguration.java and reload page.
+. Comment out `property.name` and `my-property.name` in application.properties and reload page. The default value for name, defined in MyConfigurationProperties.java should be used.
